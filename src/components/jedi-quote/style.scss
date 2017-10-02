@@ -1,0 +1,44 @@
+.jedi-quote {
+  position: relative;
+  display: block;
+
+  & > p {
+    text-align: center;
+    margin: 0;
+    padding: 1rem 0 .5rem;
+  }
+
+  & > blockquote {
+    position: relative;
+    quotes: '“' '”' '‘' '’';
+    margin: 0 1rem;
+    padding: .25rem .5rem 0 1.5rem;
+    font-style: italic;
+
+    &:before {
+      position: absolute;
+      top: .75rem;
+      left: 0;
+      content: open-quote;
+      font-size: 3rem;
+    }
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      right: .5rem;
+      content: close-quote;
+      font-size: 3rem;
+    }
+
+    & > p {
+      line-height: 1.5rem;
+    }
+
+    & > footer {
+      text-align: right;
+      padding: 0 2rem 0 0;
+      font-style: oblique;
+    }
+  }
+}

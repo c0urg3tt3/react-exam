@@ -11,6 +11,7 @@ import AppLogo from './components/app-logo/component'
 import AppTitle from './components/app-title/component'
 import JediListItem from './components/jedi-list-item/component'
 import JediListEmpty from './components/jedi-list-empty/component'
+import JediQuote from './components/jedi-quote/component'
 
 export class App extends Component {
   componentWillMount() {
@@ -28,14 +29,8 @@ export class App extends Component {
         </AppHeader>
         {(!jedies.length && (
           <JediListEmpty>
-          {({message, quote, autor}) => (
-            <div className="jedi-quote">
-              <p>{message}</p>
-              <blockquote>
-                <p>{quote}</p>
-                <footer>{autor}</footer>
-              </blockquote>
-            </div>
+          {(quoteProps) => (
+            <JediQuote {...quoteProps}/>
           )}
           </JediListEmpty>
         ))
