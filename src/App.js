@@ -1,48 +1,61 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import { fetchJedi } from './action';
+import logo from './logo.svg'
+import './App.css'
 
-function mapStateToProps(state) {
-  return {
-    jedi: state.jedi,
-  };
-}
+import fetchJedi from './action'
 
-class App extends Component {
+export class App extends Component {
   componentWillMount() {
-    this.fetchJedi();
-  }
-
-  fetchJedi() {
-    this.props.dispatch(fetchJedi());
+    this.props.fetchJedi()
   }
 
   render() {
-    const { jedi } = this.props;
+    const { jedi } = this.props
 
     return (
       <div className="App">
-        <div className="App-header">
+        <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        {jedi.map((jedi, index) => (
-          <div key={index}>
-            Jedi: id: {jedi.id} name: {jedi.name}
-          </div>
-        ))}
+          <h1>Jedi List</h1>
+        </header>
+        <ul className="App-list">
+          {jedi.map((jedi, index) => (
+            <li key={index} className="App-list-item">
+              Jedi: id: {jedi.id} name: {jedi.name}
+            </li>
+          ))}
+        </ul>
       </div>
-    );
+    )
   }
 }
 
 App.propTypes = {
   jedi: PropTypes.array,
-};
+  fetchJedi: PropTypes.func,
+}
+
+App.defaultProps = {
+  jedi: [],
+  fetchJedi: noop => noop
+}
+
+function mapStateToProps(state) {
+  return {
+    jedi: state.jedi,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchJedi: () => dispatch(fetchJedi()),
+  }
+}
 
 export default connect(
   mapStateToProps,
-)(App);
+  mapDispatchToProps,
+)(App)
