@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[component] AppHeader should render child 1`] = `"<header class=\\"app-header\\"><h1>Jedi List</h1></header>"`;
+
+exports[`[component] AppHeader should render children 1`] = `"<header class=\\"app-header\\"><img class=\\"child\\"/><h1>Jedi List</h1></header>"`;
+
+exports[`[component] AppHeader should render component 1`] = `"<header class=\\"app-header\\"></header>"`;

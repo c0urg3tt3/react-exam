@@ -6,6 +6,7 @@ import './App.css'
 
 import fetchJedi from './action'
 
+import AppHeader from './components/app-header/component'
 import AppLogo from './components/app-logo/component'
 import AppTitle from './components/app-title/component'
 
@@ -19,10 +20,10 @@ export class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
+        <AppHeader>
           <AppLogo/>
           <AppTitle/>
-        </header>
+        </AppHeader>
         <ul className="App-list">
           {jedi.map((jedi, index) => (
             <li key={index} className="App-list-item">

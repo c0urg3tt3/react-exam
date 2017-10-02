@@ -12,9 +12,8 @@ describe('App', () => {
     expect(wrapper.is('div')).toEqual(true)
     expect(wrapper.hasClass('App')).toEqual(true)
 
-    const header = wrapper.find('.App-header')
+    const header = wrapper.find('AppHeader')
     expect(header.exists()).toEqual(true)
-    expect(header.is('header')).toEqual(true)
 
       const img = header.find('AppLogo')
       expect(img.exists()).toEqual(true)
