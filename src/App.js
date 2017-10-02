@@ -10,6 +10,7 @@ import AppHeader from './components/app-header/component'
 import AppLogo from './components/app-logo/component'
 import AppTitle from './components/app-title/component'
 import JediListItem from './components/jedi-list-item/component'
+import JediListEmpty from './components/jedi-list-empty/component'
 
 export class App extends Component {
   componentWillMount() {
@@ -25,11 +26,28 @@ export class App extends Component {
           <AppLogo/>
           <AppTitle/>
         </AppHeader>
-        <ul className="app-list">
-          {jedies.map((jedi, index) => (
-            <JediListItem key={index} jedi={jedi}/>
-          ))}
-        </ul>
+        {(!jedies.length && (
+          <JediListEmpty>
+          {({message, quote, autor}) => (
+            <div className="jedi-quote">
+              <p>{message}</p>
+              <blockquote>
+                <p>{quote}</p>
+                <footer>{autor}</footer>
+              </blockquote>
+            </div>
+          )}
+          </JediListEmpty>
+        ))
+        || (
+          <ul className="app-list">
+          {
+            jedies.map((jedi, index) => (
+              <JediListItem key={index} jedi={jedi}/>
+            ))
+          }
+          </ul>
+        )}
       </div>
     )
   }

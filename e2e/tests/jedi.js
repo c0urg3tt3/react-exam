@@ -4,7 +4,7 @@ const page = require('../pages/jedi')(driver);
 describe('jedi', () => {
   beforeEach (() => page.navigate())
 
-  it('should display a list of jedi', done => {
+  it('should display an empty list then a list of jedi', done => {
     page.waitUntilApp()
     page.getAppTagName()
       .then(tagName => expect(tagName).to.equal('div'))
@@ -13,15 +13,19 @@ describe('jedi', () => {
     page.getAppHeaderTagName()
       .then(tagName => expect(tagName).to.equal('header'))
 
+    page.waitUntilJediListEmpty()
+    page.getJediListEmptyTagName()
+      .then(tagName => expect(tagName).to.equal('div'))
+      
     page.waitUntilAppList()
     page.getAppListTagName()
       .then(tagName => expect(tagName).to.equal('ul'))
 
-    page.waitUntilAppListItem()
-    page.getAppListItemTagName()
+    page.waitUntilJediListItem()
+    page.getJediListItemTagName()
       .then(tagName => expect(tagName).to.equal('li'))
 
-    page.getAppListItems()
+    page.getJediListItems()
       .then(elements => expect(elements.length).to.equal(10))
 
       .then(() => done())

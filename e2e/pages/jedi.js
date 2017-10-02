@@ -7,7 +7,8 @@ module.exports = function(driver) {
     App: By.css('.app'),
     AppHeader: By.css('.app-header'),
     AppList: By.css('.app-list'),
-    AppListItem: By.css('.jedi-list-item'),
+    JediListEmpty: By.css('.jedi-list-empty'),
+    JediListItem: By.css('.jedi-list-item'),
   }
 
   return {
@@ -42,15 +43,23 @@ module.exports = function(driver) {
       return utils.getTagName(elements.AppList)
     },
 
-  // AppListItem
-    waitUntilAppListItem: function() {
-      return utils.waitForElementVisible(elements.AppListItem)
+  // JediListEmpty
+    waitUntilJediListEmpty: function() {
+      return utils.waitForElementVisible(elements.JediListEmpty)
     },
-    getAppListItems: function() {
-      return driver.findElements(elements.AppListItem)
+    getJediListEmptyTagName: function() {
+      return utils.getTagName(elements.JediListEmpty)
     },
-    getAppListItemTagName: function() {
-      return utils.getTagName(elements.AppListItem)
+
+  // JediListItem
+    waitUntilJediListItem: function() {
+      return utils.waitForElementVisible(elements.JediListItem)
+    },
+    getJediListItems: function() {
+      return driver.findElements(elements.JediListItem)
+    },
+    getJediListItemTagName: function() {
+      return utils.getTagName(elements.JediListItem)
     },
   }
 }

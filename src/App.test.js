@@ -25,8 +25,10 @@ describe('App', () => {
       expect(h1.prop('title')).toEqual("Jedi List")
 
     const list = wrapper.find('.app-list')
-    expect(list.exists()).toEqual(true)
-    expect(list.is('ul')).toEqual(true)
+    expect(list.exists()).toEqual(false)
+
+    const listEmpty = wrapper.find('JediListEmpty')
+    expect(listEmpty.exists()).toBe(true)
 
     const listItems = wrapper.find('JediListItem')
     expect(listItems.exists()).toBe(false)
