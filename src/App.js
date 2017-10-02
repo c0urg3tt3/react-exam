@@ -11,6 +11,7 @@ import AppLogo from './components/app-logo/component'
 import AppTitle from './components/app-title/component'
 import JediListItem from './components/jedi-list-item/component'
 import JediListEmpty from './components/jedi-list-empty/component'
+import JediListLoader from './components/jedi-list-loader/component'
 import JediQuote from './components/jedi-quote/component'
 
 export class App extends Component {
@@ -19,7 +20,7 @@ export class App extends Component {
   }
 
   render() {
-    const { jedies } = this.props
+    const { jedies, isFetching } = this.props
 
     return (
       <div className="app">
@@ -27,7 +28,14 @@ export class App extends Component {
           <AppLogo/>
           <AppTitle/>
         </AppHeader>
-        {(!jedies.length && (
+        {(isFetching && (
+          <JediListLoader>
+          {(quoteProps) => (
+            <JediQuote {...quoteProps}/>
+          )}
+          </JediListLoader>
+        ))
+        || (!jedies.length && (
           <JediListEmpty>
           {(quoteProps) => (
             <JediQuote {...quoteProps}/>

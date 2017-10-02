@@ -2,9 +2,13 @@ const { driver, By, until, expect } = require('../driver')
 const page = require('../pages/jedi')(driver);
 
 describe('jedi', () => {
+  const dbUtils = require('../utils/dbUtils')('./api/db-test.json')
+
+  before (() => dbUtils.saveDb())
+
   beforeEach (() => page.navigate())
 
-  it('should display an empty list then a list of jedi', done => {
+  it('should display a list loader quote then a list of jedi', done => {
     page.waitUntilApp()
     page.getAppTagName()
       .then(tagName => expect(tagName).to.equal('div'))
@@ -13,10 +17,10 @@ describe('jedi', () => {
     page.getAppHeaderTagName()
       .then(tagName => expect(tagName).to.equal('header'))
 
-    page.waitUntilJediListEmpty()
-    page.getJediListEmptyTagName()
+    page.waitUntilJediListLoader()
+    page.getJediListLoaderTagName()
       .then(tagName => expect(tagName).to.equal('div'))
-      
+
     page.waitUntilAppList()
     page.getAppListTagName()
       .then(tagName => expect(tagName).to.equal('ul'))
@@ -30,6 +34,27 @@ describe('jedi', () => {
 
       .then(() => done())
   })
+
+  it('should display a list empty quote then a list of jedi', done => {
+    dbUtils.clearDb()
+    page.navigate()
+
+    page.waitUntilApp()
+    page.getAppTagName()
+      .then(tagName => expect(tagName).to.equal('div'))
+
+    page.waitUntilAppHeader()
+    page.getAppHeaderTagName()
+      .then(tagName => expect(tagName).to.equal('header'))
+
+    page.waitUntilJediListEmpty()
+    page.getJediListEmptyTagName()
+      .then(tagName => expect(tagName).to.equal('div'))
+
+      .then(() => done())
+  })
+
+  afterEach(() => dbUtils.restoreDb())
 
   after(() => driver.quit())
 })

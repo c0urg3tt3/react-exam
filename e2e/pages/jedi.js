@@ -8,6 +8,7 @@ module.exports = function(driver) {
     AppHeader: By.css('.app-header'),
     AppList: By.css('.app-list'),
     JediListEmpty: By.css('.jedi-list-empty'),
+    JediListLoader: By.css('.jedi-list-loader'),
     JediListItem: By.css('.jedi-list-item'),
   }
 
@@ -49,6 +50,14 @@ module.exports = function(driver) {
     },
     getJediListEmptyTagName: function() {
       return utils.getTagName(elements.JediListEmpty)
+    },
+
+  // JediListLoader
+    waitUntilJediListLoader: function() {
+      return utils.waitForElementVisible(elements.JediListLoader)
+    },
+    getJediListLoaderTagName: function() {
+      return utils.getTagName(elements.JediListLoader)
     },
 
   // JediListItem

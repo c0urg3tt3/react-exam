@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[component] JediListLoader should render component 1`] = `"<div class=\\"jedi-list-loader\\"><div><p class=\\"message\\">C3PO is fetching jedi list ...</p><p class=\\"quote\\">hnnnhrrhhh huurh uughghhhgh raaaaaahhgh uughguughhhghghghhhgh</p><p class=\\"autor\\">Chewbacca</p></div></div>"`;

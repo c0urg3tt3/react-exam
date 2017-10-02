@@ -60,4 +60,16 @@ describe('App', () => {
 
     expect(wrapper.html()).toMatchSnapshot()
   })
+
+  it('should render list loader when jedi fetch in progress', () => {
+    const appProps = {
+      isFetching: true
+    }
+    const wrapper = shallow(<App {...appProps}/>)
+
+    const listLoader = wrapper.find('JediListLoader')
+    expect(listLoader.exists()).toBe(true)
+
+    expect(wrapper.html()).toMatchSnapshot()
+  })
 })
