@@ -53,10 +53,10 @@ describe('App', () => {
       ]
     }
     const wrapper = shallow(<App {...appProps}/>)
-
-    const listItems = wrapper.find('JediListItem')
-    expect(listItems.exists()).toBe(true)
-    expect(listItems).toHaveLength(2)
+        
+    const list = wrapper.find('JediList')
+    expect(list.exists()).toBe(true)
+    expect(list.prop('jedies')).toHaveLength(2)
 
     expect(wrapper.html()).toMatchSnapshot()
   })

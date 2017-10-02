@@ -9,6 +9,7 @@ import fetchJedi from './redux/actions/jedi/fetch'
 import AppHeader from './components/app-header/component'
 import AppLogo from './components/app-logo/component'
 import AppTitle from './components/app-title/component'
+import JediList from './components/jedi-list/component'
 import JediListItem from './components/jedi-list-item/component'
 import JediListEmpty from './components/jedi-list-empty/component'
 import JediListLoader from './components/jedi-list-loader/component'
@@ -43,13 +44,11 @@ export class App extends Component {
           </JediListEmpty>
         ))
         || (
-          <ul className="app-list">
-          {
-            jedies.map((jedi, index) => (
-              <JediListItem key={index} jedi={jedi}/>
-            ))
-          }
-          </ul>
+          <JediList jedies={jedies}>
+          {({jedies}) => jedies.map((jedi, index) => (
+            <JediListItem key={index} jedi={jedi}/>
+          ))}
+          </JediList>
         )}
       </div>
     )

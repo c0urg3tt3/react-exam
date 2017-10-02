@@ -21,8 +21,8 @@ describe('jedi', () => {
     page.getJediListLoaderTagName()
       .then(tagName => expect(tagName).to.equal('div'))
 
-    page.waitUntilAppList()
-    page.getAppListTagName()
+    page.waitUntilJediList()
+    page.getJediListTagName()
       .then(tagName => expect(tagName).to.equal('ul'))
 
     page.waitUntilJediListItem()
@@ -50,7 +50,6 @@ describe('jedi', () => {
     page.waitUntilJediListEmpty()
     page.getJediListEmptyTagName()
       .then(tagName => expect(tagName).to.equal('div'))
-
       .then(() => done())
   })
 
