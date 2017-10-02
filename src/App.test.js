@@ -28,8 +28,9 @@ describe('App', () => {
     expect(list.exists()).toEqual(true)
     expect(list.is('ul')).toEqual(true)
 
-    const listItems = wrapper.find('.App-list-item')
-    expect(listItems.length).toEqual(0)
+    const listItems = wrapper.find('JediListItem')
+    expect(listItems.exists()).toBe(false)
+    
     expect(wrapper.html()).toMatchSnapshot()
   })
 
@@ -51,9 +52,10 @@ describe('App', () => {
     }
     const wrapper = shallow(<App {...appProps}/>)
 
-    const listItems = wrapper.find('.App-list-item')
-    expect(listItems.length).toEqual(2)
-    expect(listItems.first().is('li')).toEqual(true)
+    const listItems = wrapper.find('JediListItem')
+    expect(listItems.exists()).toBe(true)
+    expect(listItems).toHaveLength(2)
+
     expect(wrapper.html()).toMatchSnapshot()
   })
 })

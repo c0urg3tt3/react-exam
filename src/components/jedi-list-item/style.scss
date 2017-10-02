@@ -1,0 +1,21 @@
+.jedi-list-item {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0;
+  padding: 0 .5rem;
+  align-items: center;
+  justify-content: stretch;
+
+  & > span {
+    position: relative;
+    display: block;
+    flex: 0 0 auto;
+    margin: 0;
+    padding: .25rem 0;
+
+    &:first-of-type {
+      flex: 0 0 50px;
+    }
+  }
+}

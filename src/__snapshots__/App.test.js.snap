@@ -2,4 +2,4 @@
 
 exports[`App should render component 1`] = `"<div class=\\"App\\"><header class=\\"app-header\\"><img alt=\\"app logo\\" src=\\"logo_jedi_order.svg\\" class=\\"app-logo rotate\\"/><h1 class=\\"app-title\\">Jedi List</h1></header><ul class=\\"App-list\\"></ul></div>"`;
 
-exports[`App should render list item when jedi fetch success 1`] = `"<div class=\\"App\\"><header class=\\"app-header\\"><img alt=\\"app logo\\" src=\\"logo_jedi_order.svg\\" class=\\"app-logo rotate\\"/><h1 class=\\"app-title\\">Jedi List</h1></header><ul class=\\"App-list\\"><li class=\\"App-list-item\\">Jedi: id: 42 name: Jar Jar Bings</li><li class=\\"App-list-item\\">Jedi: id: 1337 name: Anakin Skywalkers</li></ul></div>"`;
+exports[`App should render list item when jedi fetch success 1`] = `"<div class=\\"App\\"><header class=\\"app-header\\"><img alt=\\"app logo\\" src=\\"logo_jedi_order.svg\\" class=\\"app-logo rotate\\"/><h1 class=\\"app-title\\">Jedi List</h1></header><ul class=\\"App-list\\"><li class=\\"jedi-list-item\\"><span>42</span><span>Jar Jar Bings</span></li><li class=\\"jedi-list-item\\"><span>1337</span><span>Anakin Skywalkers</span></li></ul></div>"`;

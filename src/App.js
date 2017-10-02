@@ -9,6 +9,7 @@ import fetchJedi from './action'
 import AppHeader from './components/app-header/component'
 import AppLogo from './components/app-logo/component'
 import AppTitle from './components/app-title/component'
+import JediListItem from './components/jedi-list-item/component'
 
 export class App extends Component {
   componentWillMount() {
@@ -26,9 +27,7 @@ export class App extends Component {
         </AppHeader>
         <ul className="App-list">
           {jedi.map((jedi, index) => (
-            <li key={index} className="App-list-item">
-              Jedi: id: {jedi.id} name: {jedi.name}
-            </li>
+            <JediListItem key={index} jedi={jedi}/>
           ))}
         </ul>
       </div>
