@@ -38,6 +38,7 @@
     "e2e:selenium": "java -jar c:/selenium-server/selenium-server-standalone-3.6.0.jar",
     "eject": "react-scripts eject",
     "start": "cross-env run-p css api rs:start",
+    "pretest": "npm run css:build",
     "test": "npm run rs:test",
     "rs:build": "react-scripts build",
     "rs:start": "react-scripts start",

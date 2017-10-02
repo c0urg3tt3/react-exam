@@ -6,6 +6,7 @@ import logo from './logo.svg'
 import './App.css'
 
 import fetchJedi from './action'
+import AppTitle from './components/app-title/component'
 
 export class App extends Component {
   componentWillMount() {
@@ -19,7 +20,7 @@ export class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1>Jedi List</h1>
+          <AppTitle/>
         </header>
         <ul className="App-list">
           {jedi.map((jedi, index) => (

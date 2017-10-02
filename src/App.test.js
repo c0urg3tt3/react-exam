@@ -7,7 +7,7 @@ describe('App', () => {
 
   it('should render component', () => {
     const wrapper = shallow(<App/>)
-
+    console.log(wrapper.debug())
     expect(wrapper.exists()).toEqual(true)
     expect(wrapper.is('div')).toEqual(true)
     expect(wrapper.hasClass('App')).toEqual(true)
@@ -20,9 +20,9 @@ describe('App', () => {
       expect(img.exists()).toEqual(true)
       expect(img.prop('alt')).toEqual('logo')
 
-      const h1 = header.find('h1')
+      const h1 = wrapper.find('AppTitle')
       expect(h1.exists()).toEqual(true)
-      expect(h1.text()).toEqual('Jedi List')
+      expect(h1.prop('title')).toEqual("Jedi List")
 
     const list = wrapper.find('.App-list')
     expect(list.exists()).toEqual(true)

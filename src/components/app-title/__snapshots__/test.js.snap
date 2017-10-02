@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[component] AppTitle should render component 1`] = `"<h1 class=\\"app-title\\">Jedi List</h1>"`;
+
+exports[`[component] AppTitle with custom title 1`] = `"<h1 class=\\"app-title\\">Sith List</h1>"`;
