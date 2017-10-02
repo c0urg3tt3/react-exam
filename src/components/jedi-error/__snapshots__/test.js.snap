@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[component] JediError should render component 1`] = `"<div class=\\"jedi-error\\"><div><p class=\\"message\\">No, I am your father!</p><blockquote><p class=\\"quote\\">What if I told you that the Republic was now under the control of a Dark Lord of the Sith?</p><footer class=\\"autor\\">Count Dooku</footer></blockquote></div></div>"`;

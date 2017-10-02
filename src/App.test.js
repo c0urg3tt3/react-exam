@@ -53,7 +53,7 @@ describe('App', () => {
       ]
     }
     const wrapper = shallow(<App {...appProps}/>)
-        
+
     const list = wrapper.find('JediList')
     expect(list.exists()).toBe(true)
     expect(list.prop('jedies')).toHaveLength(2)
@@ -69,6 +69,21 @@ describe('App', () => {
 
     const listLoader = wrapper.find('JediListLoader')
     expect(listLoader.exists()).toBe(true)
+
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it('should render error when jedi fetch in failure', () => {
+    const appProps = {
+      isFetchingError: true,
+      errorMessage: "oops!",
+    }
+    const wrapper = shallow(<App {...appProps}/>)
+
+    const error = wrapper.find('JediError')
+    expect(error.exists()).toBe(true)
+    expect(error.prop('isFetchingError')).toBe(true)
+    expect(error.prop('errorMessage')).toBe("oops!")
 
     expect(wrapper.html()).toMatchSnapshot()
   })

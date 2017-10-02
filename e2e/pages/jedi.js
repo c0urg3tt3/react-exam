@@ -6,6 +6,7 @@ module.exports = function(driver) {
   const elements = {
     App: By.css('.app'),
     AppHeader: By.css('.app-header'),
+    JediError: By.css('.jedi-error'),
     JediList: By.css('.jedi-list'),
     JediListEmpty: By.css('.jedi-list-empty'),
     JediListLoader: By.css('.jedi-list-loader'),
@@ -34,6 +35,14 @@ module.exports = function(driver) {
     },
     getAppHeaderTagName: function() {
       return utils.getTagName(elements.AppHeader)
+    },
+
+  // JediError
+    waitUntilJediError: function() {
+      return utils.waitForElementVisible(elements.JediError)
+    },
+    getJediErrorTagName: function() {
+      return utils.getTagName(elements.JediError)
     },
 
   // JediList

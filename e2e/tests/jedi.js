@@ -31,7 +31,6 @@ describe('jedi', () => {
 
     page.getJediListItems()
       .then(elements => expect(elements.length).to.equal(10))
-
       .then(() => done())
   })
 
@@ -49,6 +48,21 @@ describe('jedi', () => {
 
     page.waitUntilJediListEmpty()
     page.getJediListEmptyTagName()
+      .then(tagName => expect(tagName).to.equal('div'))
+      .then(() => done())
+  })
+
+  it.skip('should display an error when fetch jedi fail', done => {
+    page.waitUntilApp()
+    page.getAppTagName()
+      .then(tagName => expect(tagName).to.equal('div'))
+
+    page.waitUntilAppHeader()
+    page.getAppHeaderTagName()
+      .then(tagName => expect(tagName).to.equal('header'))
+
+    page.waitUntilJediError()
+    page.getJediErrorTagName()
       .then(tagName => expect(tagName).to.equal('div'))
       .then(() => done())
   })

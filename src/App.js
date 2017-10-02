@@ -9,6 +9,7 @@ import fetchJedi from './redux/actions/jedi/fetch'
 import AppHeader from './components/app-header/component'
 import AppLogo from './components/app-logo/component'
 import AppTitle from './components/app-title/component'
+import JediError from './components/jedi-error/component'
 import JediList from './components/jedi-list/component'
 import JediListItem from './components/jedi-list-item/component'
 import JediListEmpty from './components/jedi-list-empty/component'
@@ -21,7 +22,7 @@ export class App extends Component {
   }
 
   render() {
-    const { jedies, isFetching } = this.props
+    const { jedies, isFetching, isFetchingError, errorMessage } = this.props
 
     return (
       <div className="app">
@@ -29,6 +30,13 @@ export class App extends Component {
           <AppLogo/>
           <AppTitle/>
         </AppHeader>
+        {(isFetchingError && (
+          <JediError isFetchingError={isFetchingError} errorMessage={errorMessage}>
+          {(quoteProps) => (
+            <JediQuote {...quoteProps}/>
+          )}
+          </JediError>
+        ))}
         {(isFetching && (
           <JediListLoader>
           {(quoteProps) => (
