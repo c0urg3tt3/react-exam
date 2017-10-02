@@ -16,9 +16,10 @@ describe('App', () => {
     expect(header.exists()).toEqual(true)
     expect(header.is('header')).toEqual(true)
 
-      const img = header.find('.App-logo')
+      const img = header.find('AppLogo')
       expect(img.exists()).toEqual(true)
-      expect(img.prop('alt')).toEqual('logo')
+      expect(img.prop('imageURL')).toEqual("logo_jedi_order.svg")
+      expect(img.prop('isAnimate')).toEqual(true)
 
       const h1 = wrapper.find('AppTitle')
       expect(h1.exists()).toEqual(true)

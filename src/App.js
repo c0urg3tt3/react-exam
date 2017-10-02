@@ -2,10 +2,11 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import logo from './logo.svg'
 import './App.css'
 
 import fetchJedi from './action'
+
+import AppLogo from './components/app-logo/component'
 import AppTitle from './components/app-title/component'
 
 export class App extends Component {
@@ -19,7 +20,7 @@ export class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <AppLogo/>
           <AppTitle/>
         </header>
         <ul className="App-list">
