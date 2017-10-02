@@ -4,10 +4,10 @@ module.exports = function(driver) {
   const utils = require('../utils/driverUtils')(driver)
 
   const elements = {
-    App: By.css('.App'),
-    AppHeader: By.css('.App-header'),
-    AppList: By.css('.App-list'),
-    AppListItem: By.css('.App-list-item'),
+    App: By.css('.app'),
+    AppHeader: By.css('.app-header'),
+    AppList: By.css('.app-list'),
+    AppListItem: By.css('.jedi-list-item'),
   }
 
   return {

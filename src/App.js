@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import './App.css'
 
-import fetchJedi from './action'
+import fetchJedi from './redux/actions/jedi/fetch'
 
 import AppHeader from './components/app-header/component'
 import AppLogo from './components/app-logo/component'
@@ -17,16 +17,16 @@ export class App extends Component {
   }
 
   render() {
-    const { jedi } = this.props
+    const { jedies } = this.props
 
     return (
-      <div className="App">
+      <div className="app">
         <AppHeader>
           <AppLogo/>
           <AppTitle/>
         </AppHeader>
-        <ul className="App-list">
-          {jedi.map((jedi, index) => (
+        <ul className="app-list">
+          {jedies.map((jedi, index) => (
             <JediListItem key={index} jedi={jedi}/>
           ))}
         </ul>
@@ -36,19 +36,21 @@ export class App extends Component {
 }
 
 App.propTypes = {
-  jedi: PropTypes.array,
+  jedies: PropTypes.array,
+  isFetching: PropTypes.bool,
+  isFetchingError: PropTypes.bool,
   fetchJedi: PropTypes.func,
 }
 
 App.defaultProps = {
-  jedi: [],
+  jedies: [],
+  isFetching: false,
+  isFetchingError: true,
   fetchJedi: noop => noop
 }
 
 function mapStateToProps(state) {
-  return {
-    jedi: state.jedi,
-  }
+  return { ...state.jedi.list }
 }
 
 function mapDispatchToProps(dispatch) {

@@ -10,7 +10,7 @@ describe('App', () => {
     console.log(wrapper.debug())
     expect(wrapper.exists()).toEqual(true)
     expect(wrapper.is('div')).toEqual(true)
-    expect(wrapper.hasClass('App')).toEqual(true)
+    expect(wrapper.hasClass('app')).toEqual(true)
 
     const header = wrapper.find('AppHeader')
     expect(header.exists()).toEqual(true)
@@ -24,13 +24,13 @@ describe('App', () => {
       expect(h1.exists()).toEqual(true)
       expect(h1.prop('title')).toEqual("Jedi List")
 
-    const list = wrapper.find('.App-list')
+    const list = wrapper.find('.app-list')
     expect(list.exists()).toEqual(true)
     expect(list.is('ul')).toEqual(true)
 
     const listItems = wrapper.find('JediListItem')
     expect(listItems.exists()).toBe(false)
-    
+
     expect(wrapper.html()).toMatchSnapshot()
   })
 
@@ -45,7 +45,7 @@ describe('App', () => {
 
   it('should render list item when jedi fetch success', () => {
     const appProps = {
-      jedi: [
+      jedies: [
         {id: 42, name: 'Jar Jar Bings'},
         {id: 1337, name: 'Anakin Skywalkers'}
       ]
