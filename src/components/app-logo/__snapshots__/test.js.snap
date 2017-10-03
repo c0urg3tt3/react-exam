@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[component] AppLogo animation can be disabled 1`] = `"<img alt=\\"app logo\\" src=\\"logo_jedi_order.svg\\" class=\\"app-logo rotate\\"/>"`;
+
+exports[`[component] AppLogo animation can be disabled 2`] = `"<img alt=\\"app logo\\" src=\\"logo_jedi_order.svg\\" class=\\"app-logo\\"/>"`;
+
+exports[`[component] AppLogo should render component 1`] = `"<img alt=\\"app logo\\" src=\\"logo_jedi_order.svg\\" class=\\"app-logo rotate\\"/>"`;
+
+exports[`[component] AppLogo should replace logo src by imageURL prop 1`] = `"<img alt=\\"app logo\\" src=\\"logo_jedi_order.svg\\" class=\\"app-logo rotate\\"/>"`;
+
+exports[`[component] AppLogo should replace logo src by imageURL prop 2`] = `"<img alt=\\"app logo\\" src=\\"http://www.dark-vador.net/\\" class=\\"app-logo rotate\\"/>"`;

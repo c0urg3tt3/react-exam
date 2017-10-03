@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[component] JediListItem should render component 1`] = `"<li class=\\"jedi-list-item\\"><span></span><span></span></li>"`;
+
+exports[`[component] JediListItem should render component 2`] = `"<li class=\\"jedi-list-item\\"><span>1337</span><span>Anakin Skywalker</span></li>"`;

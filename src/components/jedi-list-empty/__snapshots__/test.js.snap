@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[component] JediListEmpty should render component 1`] = `"<div class=\\"jedi-list-empty\\"><div><p class=\\"message\\">Looks like someone executed Order 66 !</p><p class=\\"quote\\">Master sky walker there is too many of them what are we going to do?</p><p class=\\"autor\\">Padawan</p></div></div>"`;
