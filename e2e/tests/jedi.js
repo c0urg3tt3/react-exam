@@ -34,7 +34,7 @@ describe('jedi', () => {
       .then(() => done())
   })
 
-  it('should display a list empty quote then a list of jedi', done => {
+  it('should display a list empty quote', done => {
     dbUtils.clearDb()
     page.navigate()
 
