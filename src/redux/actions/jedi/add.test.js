@@ -3,54 +3,54 @@ import thunk from 'redux-thunk'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
 
-import fetchJedi from './fetch'
+import addJedi from './add'
 
 import {
-  JEDI_FETCH_REQUEST,
-  JEDI_FETCH_SUCCESS,
-  JEDI_FETCH_ERROR
+  JEDI_ADD_REQUEST,
+  JEDI_ADD_SUCCESS,
+  JEDI_ADD_ERROR
 } from './'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 let mockAxios
 
-describe('[action] jedi/fetch', () => {
+describe('[action] jedi/add', () => {
   beforeEach (() => {
     mockAxios = new MockAdapter(axios)
   })
 
-  it('[async] fetch jedies success', (done) => {
+  it('[async] add jedi success', (done) => {
     mockAxios
-      .onGet('http://localhost:3001/jedi')
-      .reply(200, [{id:42, name:'Jar Jar Bings'}])
+      .onPost('http://localhost:3001/jedi')
+      .reply(200, {id:42, name:'Jar Jar Bings'})
 
     const expectedActions = [
-      { type: JEDI_FETCH_REQUEST },
-      { type: JEDI_FETCH_SUCCESS, payload: [{id:42, name:'Jar Jar Bings'}] }
+      { type: JEDI_ADD_REQUEST },
+      { type: JEDI_ADD_SUCCESS, payload: {id:42, name:'Jar Jar Bings'}}
     ]
     const store = mockStore({ jedi: { list: { data: [] }}})
 
-    store.dispatch(fetchJedi()).then(() => {
+    store.dispatch(addJedi('Jar Jar Bings')).then(() => {
       // return of async actions
       expect(store.getActions()).toEqual(expectedActions)
       done()
     })
   })
 
-  it('[async] fetch jedies error', (done) => {
+  it('[async] add jedi fail', (done) => {
     mockAxios
-      .onGet('http://localhost:3001/jedi')
-      // .timeout()
+      .onPost('http://localhost:3001/jedi')
+      .timeout()
       // .networkError()
 
     const expectedActions = [
-      { type: JEDI_FETCH_REQUEST },
-      { type: JEDI_FETCH_ERROR, errorMessage: "Error: Request failed with status code 404" }
+      { type: JEDI_ADD_REQUEST },
+      { type: JEDI_ADD_ERROR, errorMessage: "Error: timeout of 0ms exceeded" }
     ]
     const store = mockStore({ jedi: { list: { data: [] }}})
 
-    store.dispatch(fetchJedi()).then(() => {
+    store.dispatch(addJedi('Jar Jar Bings')).then(() => {
       // return of async actions
       expect(store.getActions()).toEqual(expectedActions)
       done()

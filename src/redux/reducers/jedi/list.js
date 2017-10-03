@@ -36,6 +36,15 @@ export default function listReducer (state = initialState, action) {
         isFetchingError: true,
         fetchingError: action.errorMessage
       }
+  // ADD
+    case JEDI_ADD_SUCCESS:
+      return {
+        ...state,
+        jedies: [
+          action.payload,
+          ...state.jedies
+        ]
+      }
   // DEFAULT
     default:
       return state

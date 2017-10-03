@@ -23,7 +23,8 @@ export default function fetchJedi () {
         },
         err => {
           dispatch({
-            type: JEDI_FETCH_ERROR
+            type: JEDI_FETCH_ERROR,
+            errorMessage: err.toString()
           })
         }
       )

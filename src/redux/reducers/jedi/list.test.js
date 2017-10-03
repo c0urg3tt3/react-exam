@@ -80,4 +80,30 @@ describe('[reducer] jedi/list', () => {
       fetchingError: errorMessage
     })
   })
+
+  it('should handle JEDI_ADD_SUCCESS (append payload to data)', () => {
+    expect(
+      reducer({
+        jedies: [
+          { id: 1337, name: 'Anakin Skywalker' },
+          { id: 42, name: 'Palpatine' }
+        ],
+        isFetching: false,
+        isFetchingError: false,
+        fetchingError: ""
+      }, {
+        type: JEDI_ADD_SUCCESS,
+        payload: { id: 4200, name: 'Jar Jar Bings' }
+      })
+    ).toEqual({
+      jedies: [
+        { id: 4200, name: 'Jar Jar Bings'},
+        { id: 1337, name: 'Anakin Skywalker' },
+        { id: 42, name: 'Palpatine' }
+      ],
+      isFetching: false,
+      isFetchingError: false,
+      fetchingError: ""
+    })
+  })
 })
