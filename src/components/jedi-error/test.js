@@ -26,7 +26,7 @@ describe('[component] JediError', () => {
 
     expect(wrapper.exists()).toEqual(true)
     expect(wrapper.is('div')).toEqual(false)
-    expect(wrapper.hasClass('.jedi-error')).toEqual(false)
+    expect(wrapper.hasClass('jedi-error')).toEqual(false)
 
     const errorMessage = "No, I am your father!"
     wrapper.setProps({

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 import JediError from '../jedi-error/component'
+import JediForm from '../jedi-form/component'
 import JediListEmpty from '../jedi-list-empty/component'
 import JediListLoader from '../jedi-list-loader/component'
 import JediQuote from '../jedi-quote/component'
@@ -28,47 +29,88 @@ export default class Jedi  extends Component {
 
   render () {
     const classNames = ['jedi']
-    const { children, jedies, fetchJedi } = this.props
+    const { children, jedies, addJedi } = this.props
     const { isFetching, isFetchingError, fetchingError } = this.props
+    const { isPosting, isPostingError, postingError } = this.props
     const { isBoundaryError, boundaryError } = this.state
     const errorMessage = isBoundaryError
       ? boundaryError
       : ( isFetchingError
         ? fetchingError
-        : ""
+        : ( isPostingError
+          ? postingError
+          : ""
+        )
       )
     const isEmptyList = !jedies.length
-
+    let hasError = false
+    
     if (errorMessage !== "") {
       classNames.push('error')
+      hasError = true
     }
 
     return (
       <div className={classNames.join(' ')}>
+      {hasError && (
         <JediError
           key="JediError-0"
           isBoundaryError={isBoundaryError}
           isFetchingError={isFetchingError}
-          errorMessage={errorMessage}>
+          errorMessage={errorMessage}
+        >
           {(quoteProps) => (
             <JediQuote {...quoteProps}/>
           )}
         </JediError>
-        {
-          (isFetching && (
-            <JediListLoader>
-              {(quoteProps) => (
-                <JediQuote {...quoteProps}/>
-              )}
-            </JediListLoader>
-          )) || (!jedies.length && (
-            <JediListEmpty>
-              {(quoteProps) => (
-                <JediQuote {...quoteProps}/>
-              )}
-            </JediListEmpty>
-          )) || children({jedies})
-        }
+      )}
+        <JediForm addJedi={addJedi} isPosting={isPosting}>
+        {({inputNameValue, inputNameHandleChange, submitButtonIsDisabled}) => [(
+          <div
+            key="JediFormField-0"
+            className="jedi-form-field"
+          >
+            <label
+              className="jedi-form-field-label"
+              htmlFor="jedi-name-input"
+            >
+              Add a Jedi to the Council
+            </label>
+            <input
+              className="jedi-form-field-input"
+              id="jedi-name-input"
+              name="jedi-name-input"
+              value={inputNameValue}
+              placeholder="name"
+              onChange={inputNameHandleChange}
+            />
+          </div>
+        ), (
+          <button
+            key="JediFormButtonSubmit-0"
+            className="jedi-form-button-submit"
+            disabled={submitButtonIsDisabled}
+          >
+            +
+          </button>
+        )]}
+        </JediForm>
+
+      {(isFetching && (
+        <JediListLoader>
+        {(quoteProps) => (
+          <JediQuote {...quoteProps}/>
+        )}
+        </JediListLoader>
+      ))
+      || (isEmptyList && (
+        <JediListEmpty>
+        {(quoteProps) => (
+          <JediQuote {...quoteProps}/>
+        )}
+        </JediListEmpty>
+      ))
+      || children({jedies})}
       </div>
     )
   }
@@ -79,6 +121,10 @@ Jedi.propTypes = {
   isFetching: PropTypes.bool,
   isFetchingError: PropTypes.bool,
   fetchingError: PropTypes.string,
+  isPosting: PropTypes.bool,
+  isPostingError: PropTypes.bool,
+  postingError: PropTypes.string,
+  addJedi: PropTypes.func,
   fetchJedi: PropTypes.func,
   children: PropTypes.func
 }
@@ -88,6 +134,10 @@ Jedi.defaultProps = {
   isFetching: false,
   isFetchingError: false,
   fetchingError: "",
+  isPosting: false,
+  isPostingError: false,
+  postingError: "",
+  addJedi: x => x,
   fetchJedi: x => x,
   children: () => null
 }

@@ -17,6 +17,10 @@ describe('jedi', () => {
     page.getAppHeaderTagName()
       .then(tagName => expect(tagName).to.equal('header'))
 
+    page.waitUntilJediForm()
+    page.getJediFormTagName()
+      .then(tagName => expect(tagName).to.equal('form'))
+
     page.waitUntilJediListLoader()
     page.getJediListLoaderTagName()
       .then(tagName => expect(tagName).to.equal('div'))
@@ -46,6 +50,10 @@ describe('jedi', () => {
     page.getAppHeaderTagName()
       .then(tagName => expect(tagName).to.equal('header'))
 
+    page.waitUntilJediForm()
+    page.getJediFormTagName()
+      .then(tagName => expect(tagName).to.equal('form'))
+
     page.waitUntilJediListEmpty()
     page.getJediListEmptyTagName()
       .then(tagName => expect(tagName).to.equal('div'))
@@ -60,6 +68,10 @@ describe('jedi', () => {
     page.waitUntilAppHeader()
     page.getAppHeaderTagName()
       .then(tagName => expect(tagName).to.equal('header'))
+
+    page.waitUntilJediForm()
+    page.getJediFormTagName()
+      .then(tagName => expect(tagName).to.equal('form'))
 
     page.waitUntilJediError()
     page.getJediErrorTagName()

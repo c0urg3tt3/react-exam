@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { render, mount, shallow } from 'enzyme'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
@@ -10,6 +10,7 @@ import {
   expectJediListLoader,
   // expectJedi,
   expectJediError,
+  expectJediForm,
   expectJediListEmpty,
   expectJediList,
   expectJediListItem,
@@ -32,6 +33,7 @@ describe('Root', () => {
     expectAppHeader({wrapper})
     expectAppLogo({wrapper})
     expectAppTitle({wrapper})
+    expectJediForm({wrapper})
     expectJediList({wrapper, exist: false})
     expectJediListItem({wrapper, exist: false})
     expectJediListEmpty({wrapper})
