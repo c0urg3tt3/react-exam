@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[component] App should render children 1`] = `"<div class=\\"app\\"><header>Sith List</header><main>Who know ?</main></div>"`;
+
+exports[`[component] App should render component 1`] = `"<div class=\\"app\\"></div>"`;

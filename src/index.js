@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import Root from './Root'
 import store from './redux/configureStore'
 
 import './reset.css'
 
 ReactDOM.render(
-  <App store={store}/>,
+  <Root store={store}/>,
   document.getElementById('root')
 )

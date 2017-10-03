@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 import { Provider } from 'react-redux'
 
+import App from './components/app/component'
 import AppHeader from './components/app-header/component'
 import AppLogo from './components/app-logo/component'
 import AppTitle from './components/app-title/component'
@@ -11,9 +12,9 @@ import JediListItem from './components/jedi-list-item/component'
 
 import Jedi from './containers/jedi'
 
-import './App.css'
+import './Root.css'
 
-export default class App extends Component {
+export default class Root extends Component {
   constructor () {
     super(...arguments)
     this.state = { error: null, hasError: false }
@@ -28,7 +29,7 @@ export default class App extends Component {
 
     return (hasError && error.toString()) || (
       <Provider store={this.props.store}>
-        <div className="app">
+        <App>
           <AppHeader>
             <AppLogo/>
             <AppTitle/>
@@ -43,7 +44,7 @@ export default class App extends Component {
             </JediList>
           )}
           </Jedi>
-        </div>
+        </App>
       </Provider>
     )
   }

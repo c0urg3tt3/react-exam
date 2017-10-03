@@ -19,12 +19,12 @@ import {
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-import App from './App'
+import Root from './Root'
 
-describe('App', () => {
+describe('Root', () => {
   it('should render component', () => {
     const store = mockStore({ jedi: { list: { jedies: [] }}})
-    const wrapper = mount(<App store={store}/>)
+    const wrapper = mount(<Root store={store}/>)
 
     expect(wrapper.exists()).toEqual(true)
     expect(wrapper.find('.app').exists()).toEqual(true)
@@ -50,7 +50,7 @@ describe('App', () => {
       {id: 1337, name: 'Anakin Skywalkers'}
     ]
     const store = mockStore({ jedi: { list: { jedies }}})
-    const wrapper = mount(<App store={store}/>)
+    const wrapper = mount(<Root store={store}/>)
 
     expectJediList({wrapper, jedies})
     expectJediListItem({wrapper, jedi: jedies[0]})
@@ -60,7 +60,7 @@ describe('App', () => {
 
   it('should render list loader when jedi fetch in progress', () => {
     const store = mockStore({ jedi: { list: { isFetching: true }}})
-    const wrapper = mount(<App store={store}/>)
+    const wrapper = mount(<Root store={store}/>)
 
     expectJediListLoader({wrapper})
     expectJediQuote({
@@ -78,7 +78,7 @@ describe('App', () => {
       isFetchingError: true,
       fetchingError: errorMessage
     }}})
-    const wrapper = mount(<App store={store}/>)
+    const wrapper = mount(<Root store={store}/>)
 
     expectJediError({
       wrapper,
