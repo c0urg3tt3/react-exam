@@ -20,7 +20,6 @@ export function expectAppTitle ({wrapper, exist = true, title = "Jedi List"}) {
   if (exist) {
     expect(H1.prop('title')).toEqual(title)
   }
-
   // const h1 = wrapper.find('.app-title')
   // expect(h1.exists()).toEqual(true)
   // expect(h1.text()).toEqual("Jedi List")
@@ -39,8 +38,18 @@ export function expectJediForm ({wrapper, exist = true, isPosting = false}) {
     expect(JediForm.prop('isPosting')).toEqual(isPosting)
     expect(JediForm.prop('addJedi')).toHaveLength(1)
   }
-  // const list = wrapper.find('.jedi-list')
-  // expect(list.exists()).toEqual(true)
+}
+
+export function expectJediFormField ({wrapper, exist = true, elementId = "", value = "", labelValue = "", placeholder = "", onChange = () => null}) {
+  const JediFormField = wrapper.find('JediFormField')
+  expect(JediFormField.exists()).toEqual(exist)
+
+  if (exist) {
+    expect(JediFormField.prop('elementId')).toEqual(elementId)
+    expect(JediFormField.prop('value')).toEqual(value)
+    expect(JediFormField.prop('labelValue')).toEqual(labelValue)
+    expect(JediFormField.prop('placeholder')).toEqual(placeholder)
+  }
 }
 
 export function expectJediList ({wrapper, exist = true, jedies = []}) {

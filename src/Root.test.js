@@ -11,6 +11,7 @@ import {
   // expectJedi,
   expectJediError,
   expectJediForm,
+  expectJediFormField,
   expectJediListEmpty,
   expectJediList,
   expectJediListItem,
@@ -34,6 +35,13 @@ describe('Root', () => {
     expectAppLogo({wrapper})
     expectAppTitle({wrapper})
     expectJediForm({wrapper})
+    expectJediFormField({
+      wrapper,
+      elementId: 'jedi-form-field_name',
+      labelValue: "Add a Jedi to the Council",
+      placeholder: "name",
+      value: ""
+    })
     expectJediList({wrapper, exist: false})
     expectJediListItem({wrapper, exist: false})
     expectJediListEmpty({wrapper})

@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 import JediError from '../jedi-error/component'
 import JediForm from '../jedi-form/component'
+import JediFormField from '../jedi-form-field/component'
 import JediListEmpty from '../jedi-list-empty/component'
 import JediListLoader from '../jedi-list-loader/component'
 import JediQuote from '../jedi-quote/component'
@@ -44,7 +45,7 @@ export default class Jedi  extends Component {
       )
     const isEmptyList = !jedies.length
     let hasError = false
-    
+
     if (errorMessage !== "") {
       classNames.push('error')
       hasError = true
@@ -65,26 +66,14 @@ export default class Jedi  extends Component {
         </JediError>
       )}
         <JediForm addJedi={addJedi} isPosting={isPosting}>
-        {({inputNameValue, inputNameHandleChange, submitButtonIsDisabled}) => [(
-          <div
+        {({fieldName, submitButtonIsDisabled}) => [(
+          <JediFormField
             key="JediFormField-0"
-            className="jedi-form-field"
-          >
-            <label
-              className="jedi-form-field-label"
-              htmlFor="jedi-name-input"
-            >
-              Add a Jedi to the Council
-            </label>
-            <input
-              className="jedi-form-field-input"
-              id="jedi-name-input"
-              name="jedi-name-input"
-              value={inputNameValue}
-              placeholder="name"
-              onChange={inputNameHandleChange}
-            />
-          </div>
+            elementId='jedi-form-field_name'
+            labelValue="Add a Jedi to the Council"
+            placeholder="name"
+            {...fieldName}
+          />
         ), (
           <button
             key="JediFormButtonSubmit-0"

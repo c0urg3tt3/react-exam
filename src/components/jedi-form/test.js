@@ -17,14 +17,14 @@ describe('[component] JediForm', () => {
     const mockAddJedi = jest.fn()
     const wrapper = shallow(
       <JediForm addJedi={mockAddJedi}>
-      {({inputNameValue, inputNameHandleChange}) => (
+      {({fieldName}) => (
         <input
           className="jedi-form-field-input"
           id="jedi-name"
           name="jedi-name"
-          value={inputNameValue}
+          value={fieldName.value}
           placeholder="name"
-          onChange={inputNameHandleChange}
+          onChange={fieldName.handleChange}
         />
       )}
       </JediForm>
@@ -46,15 +46,15 @@ describe('[component] JediForm', () => {
   it('should disable the submit button when is posting or the value is empty', () => {
     const wrapper = shallow(
       <JediForm>
-      {({inputNameValue, inputNameHandleChange, submitButtonIsDisabled}) => [(
+      {({fieldName, submitButtonIsDisabled}) => [(
         <input
           key="JediFormInput-0"
           className="jedi-form-field-input"
           id="jedi-name"
           name="jedi-name"
-          value={inputNameValue}
+          value={fieldName.value}
           placeholder="name"
-          onChange={inputNameHandleChange}
+          onChange={fieldName.handleChange}
         />
       ), (
         <button

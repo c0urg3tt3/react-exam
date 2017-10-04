@@ -5,25 +5,19 @@ import './style.css'
 export default class JediForm extends PureComponent {
   constructor () {
     super(...arguments)
-    this.state = { value: ''}
-    this.handleChange = this._handleChange.bind(this)
+    this.state = { inputNameValue: ''}
     this.handleSubmit = this._handleSubmit.bind(this)
-  }
-
-  _handleChange (event) {
-    this.setState({
-      value: (!!event && !!event.target && event.target.value) || ""
-    })
+    this.inputNameHandleChange = this._inputNameHandleChange.bind(this)
   }
 
   _handleSubmit (event) {
-    const { value } = this.state
+    const { inputNameValue } = this.state
     const { isPosting, addJedi } = this.props
-    const hasValue = !isPosting && (value.trim().length > 0)
+    const hasValue = !isPosting && (inputNameValue.trim().length > 0)
 
     if (hasValue) {
-      addJedi(value)
-      this.setState({value: ''})
+      addJedi(inputNameValue)
+      this.setState({inputNameValue: ''})
     }
 
     if (event) {
@@ -31,11 +25,20 @@ export default class JediForm extends PureComponent {
     }
   }
 
-  render() {
-    const { props, state, handleSubmit, handleChange: inputNameHandleChange } = this
-    const { value: inputNameValue } = state
-    const { children, isPosting } = props
+  _inputNameHandleChange (event) {
+    this.setState({
+      inputNameValue: (!!event && !!event.target && event.target.value) || ""
+    })
+  }
 
+  render() {
+    const { props, state, handleSubmit, inputNameHandleChange } = this
+    const { inputNameValue } = state
+    const { children, isPosting } = props
+    const fieldName = {
+      value: inputNameValue,
+      handleChange: inputNameHandleChange
+    }
     const submitButtonIsDisabled = (isPosting || (inputNameValue.length === 0)) ? true : null
 
     return (
@@ -43,7 +46,7 @@ export default class JediForm extends PureComponent {
         className="jedi-form"
         onSubmit={handleSubmit}
       >
-        {children({inputNameValue, inputNameHandleChange, submitButtonIsDisabled})}
+        {children({fieldName, submitButtonIsDisabled})}
       </form>
     )
   }
