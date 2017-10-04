@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[component] JediQuote should render component 1`] = `"<div class=\\"jedi-quote\\"><p></p><blockquote><p></p><footer></footer></blockquote></div>"`;
+exports[`[component] JediQuote should render component 1`] = `"<div class=\\"jedi-quote\\"><p class=\\"jedi-quote_message\\"></p><blockquote><p class=\\"jedi-quote_quote\\"></p><footer class=\\"jedi-quote_autor\\"></footer></blockquote></div>"`;
 
-exports[`[component] JediQuote should render component 2`] = `"<div class=\\"jedi-quote\\"><p>Something went wrong while fetching !</p><blockquote><p>What if I told you that the Republic was now under the control of a Dark Lord of the Sith?</p><footer>Count Dooku</footer></blockquote></div>"`;
+exports[`[component] JediQuote should render component 2`] = `"<div class=\\"jedi-quote\\"><p class=\\"jedi-quote_message\\">Something went wrong while fetching !</p><blockquote><p class=\\"jedi-quote_quote\\">What if I told you that the Republic was now under the control of a Dark Lord of the Sith?</p><footer class=\\"jedi-quote_autor\\">Count Dooku</footer></blockquote></div>"`;

@@ -133,7 +133,7 @@ describe('Root', () => {
       wrapper: wrapper.find('JediError'),
       message: errorMessage,
       quote: "The Council will act as they deem necessary.",
-      autor: "Mace Windu, member of the Jedi High Council"
+      autor: "Mace Windu"
     })
     expect(wrapper.html()).toMatchSnapshot()
   })

@@ -15,7 +15,7 @@ export const FETCHING_ERROR_QUOTE = {
 
 export const POSTING_ERROR_QUOTE = {
   quote: "The Council will act as they deem necessary.",
-  autor: "Mace Windu, member of the Jedi High Council"
+  autor: "Mace Windu"
 }
 
 export default function JediError (props) {
@@ -23,10 +23,10 @@ export default function JediError (props) {
 
   const quote = errorMessage !== "" && ( isBoundaryError
     ? BOUNDARY_ERROR_QUOTE
-    : ( isFetchingError
-      ? FETCHING_ERROR_QUOTE
-      : ( isPostingError
-        ? POSTING_ERROR_QUOTE
+    : ( isPostingError
+      ? POSTING_ERROR_QUOTE
+      : ( isFetchingError
+        ? FETCHING_ERROR_QUOTE
         : false
       )
     )

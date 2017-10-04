@@ -38,10 +38,10 @@ export default class Jedi  extends Component {
     const { isBoundaryError, boundaryError } = this.state
     const errorMessage = isBoundaryError
       ? boundaryError
-      : ( isFetchingError
-        ? fetchingError
-        : ( isPostingError
-          ? postingError
+      : ( isPostingError
+        ? postingError
+        : ( isFetchingError
+          ? fetchingError
           : ""
         )
       )
@@ -55,19 +55,6 @@ export default class Jedi  extends Component {
 
     return (
       <div className={classNames.join(' ')}>
-      {hasError && (
-        <JediError
-          key="JediError-0"
-          isBoundaryError={isBoundaryError}
-          isPostingError={isPostingError}
-          isFetchingError={isFetchingError}
-          errorMessage={errorMessage}
-        >
-          {(quoteProps) => (
-            <JediQuote {...quoteProps}/>
-          )}
-        </JediError>
-      )}
         <JediForm addJedi={addJedi} isPosting={isPosting}>
         {({fieldName, submitButtonIsDisabled}) => [(
           <JediFormField
@@ -86,8 +73,19 @@ export default class Jedi  extends Component {
           </JediFormButtonSubmit>
         )]}
         </JediForm>
-
-      {(isFetching && (
+      {hasError && (
+        <JediError
+          key="JediError-0"
+          isBoundaryError={isBoundaryError}
+          isPostingError={isPostingError}
+          isFetchingError={isFetchingError}
+          errorMessage={errorMessage}
+        >
+          {(quoteProps) => (
+            <JediQuote {...quoteProps}/>
+          )}
+        </JediError>
+      ) || (isFetching && (
         <JediListLoader>
         {(quoteProps) => (
           <JediQuote {...quoteProps}/>
