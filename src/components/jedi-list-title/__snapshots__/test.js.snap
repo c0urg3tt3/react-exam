@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[component] JediListTitle should render component 1`] = `"<li class=\\"jedi-list-title\\"><span class=\\"jedi-list-title_id\\">id</span><span class=\\"jedi-list-title_name\\">name</span></li>"`;

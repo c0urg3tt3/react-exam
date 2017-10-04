@@ -15,6 +15,7 @@ import {
   expectJediFormButtonSubmit,
   expectJediListEmpty,
   expectJediList,
+  expectJediListTitle,
   expectJediListItem,
   expectJediQuote
 } from './utils/expectedComponents'
@@ -73,6 +74,7 @@ describe('Root', () => {
     const wrapper = mount(<Root store={store}/>)
 
     expectJediList({wrapper, jedies})
+    expectJediListTitle({wrapper})
     expectJediListItem({wrapper, jedi: jedies[0]})
 
     expect(wrapper.html()).toMatchSnapshot()
