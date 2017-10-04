@@ -113,4 +113,26 @@ describe('Root', () => {
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
+
+  it('should render error when jedi post in failure', () => {
+    const errorMessage = "death star destroyed !"
+    const store = mockStore({ jedi: { list: {
+      isPostingError: true,
+      postingError: errorMessage
+    }}})
+    const wrapper = mount(<Root store={store}/>)
+
+    expectJediError({
+      wrapper,
+      isPostingError: true,
+      errorMessage: errorMessage
+    })
+    expectJediQuote({
+      wrapper: wrapper.find('JediError'),
+      message: errorMessage,
+      quote: "The Council will act as they deem necessary.",
+      autor: "Mace Windu, member of the Jedi High Council"
+    })
+    expect(wrapper.html()).toMatchSnapshot()
+  })
 })

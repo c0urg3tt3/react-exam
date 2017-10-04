@@ -59,6 +59,7 @@ export default class Jedi  extends Component {
         <JediError
           key="JediError-0"
           isBoundaryError={isBoundaryError}
+          isPostingError={isPostingError}
           isFetchingError={isFetchingError}
           errorMessage={errorMessage}
         >
