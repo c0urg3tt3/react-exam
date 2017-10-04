@@ -60,6 +60,44 @@ describe('jedi', () => {
       .then(() => done())
   })
 
+  it('should add a jedi', done => {
+    page.waitUntilApp()
+    page.getAppTagName()
+      .then(tagName => expect(tagName).to.equal('div'))
+
+    page.waitUntilAppHeader()
+    page.getAppHeaderTagName()
+      .then(tagName => expect(tagName).to.equal('header'))
+
+    page.waitUntilJediForm()
+    page.getJediFormTagName()
+      .then(tagName => expect(tagName).to.equal('form'))
+
+    page.waitUntilJediFormButtonSubmit()
+    page.getJediFormButtonSubmitTagName()
+      .then(tagName => expect(tagName).to.equal('button'))
+
+    page.waitUntilJediFormFieldName()
+    page.getJediFormFieldNameTagName()
+      .then(tagName => expect(tagName).to.equal('input'))
+
+    page.submitJediFormWithName('Jar Jar Bings')
+
+    driver.sleep(1000)
+
+    page.waitUntilJediList()
+    page.getJediListTagName()
+      .then(tagName => expect(tagName).to.equal('ul'))
+
+    page.waitUntilJediListItem()
+    page.getJediListItemTagName()
+      .then(tagName => expect(tagName).to.equal('li'))
+
+    page.getJediListItems()
+      .then(elements => expect(elements.length).to.equal(11))
+      .then(() => done())
+  })
+
   it.skip('should display an error when fetch jedi fail', done => {
     page.waitUntilApp()
     page.getAppTagName()

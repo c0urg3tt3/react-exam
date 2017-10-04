@@ -37,12 +37,14 @@ export default class JediForm extends PureComponent {
     const { children, isPosting } = props
     const fieldName = {
       value: inputNameValue,
-      handleChange: inputNameHandleChange
+      onChange: inputNameHandleChange
     }
-    const submitButtonIsDisabled = (isPosting || (inputNameValue.length === 0)) ? true : null
+
+    const submitButtonIsDisabled = (isPosting || (inputNameValue.length === 0))
 
     return (
       <form
+        id="jedi-form"
         className="jedi-form"
         onSubmit={handleSubmit}
       >

@@ -32,7 +32,7 @@
     "css": "cross-env run-s css:build css:watch",
     "css:build": "node-sass-chokidar src/ -o src/",
     "css:watch": "node-sass-chokidar src/ -o src/ --watch --recursive",
-    "e2e": "cross-env run-p e2e:selenium e2e:api rs:start e2e:mocha",
+    "e2e": "cross-env BROWSER=none run-p e2e:selenium e2e:api rs:start e2e:mocha",
     "e2e:api": "json-server --watch api/db-test.json --port 3001 --delay 1000",
     "e2e:mocha": "mocha ./e2e/tests/*.js --timeout=10000 --watch",
     "e2e:selenium": "java -jar c:/selenium-server/selenium-server-standalone-3.6.0.jar",

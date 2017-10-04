@@ -9,6 +9,7 @@ const driver = new webDriver.Builder()
 module.exports = {
   driver,
   By: webDriver.By,
+  Key: webDriver.Key,
   until: webDriver.until,
   expect: chai.expect
 }

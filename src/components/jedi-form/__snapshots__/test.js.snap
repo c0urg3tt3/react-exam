@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[component] JediForm should disable the submit button when is posting or the value is empty 1`] = `"<form class=\\"jedi-form\\"><input class=\\"jedi-form-field-input\\" id=\\"jedi-name\\" name=\\"jedi-name\\" value=\\"\\" placeholder=\\"name\\"/><button class=\\"jedi-form-button-submit\\" disabled=\\"\\">+</button></form>"`;
+exports[`[component] JediForm should disable the submit button when is posting or the value is empty 1`] = `"<form id=\\"jedi-form\\" class=\\"jedi-form\\"><input class=\\"jedi-form-field-input\\" id=\\"jedi-name\\" name=\\"jedi-name\\" value=\\"\\" placeholder=\\"name\\"/><button class=\\"jedi-form-button-submit\\" disabled=\\"\\">+</button></form>"`;
 
-exports[`[component] JediForm should disable the submit button when is posting or the value is empty 2`] = `"<form class=\\"jedi-form\\"><input class=\\"jedi-form-field-input\\" id=\\"jedi-name\\" name=\\"jedi-name\\" value=\\"Jar Jar Bings\\" placeholder=\\"name\\"/><button class=\\"jedi-form-button-submit\\">+</button></form>"`;
+exports[`[component] JediForm should disable the submit button when is posting or the value is empty 2`] = `"<form id=\\"jedi-form\\" class=\\"jedi-form\\"><input class=\\"jedi-form-field-input\\" id=\\"jedi-name\\" name=\\"jedi-name\\" value=\\"Jar Jar Bings\\" placeholder=\\"name\\"/><button class=\\"jedi-form-button-submit\\">+</button></form>"`;
 
-exports[`[component] JediForm should render component 1`] = `"<form class=\\"jedi-form\\"></form>"`;
+exports[`[component] JediForm should render component 1`] = `"<form id=\\"jedi-form\\" class=\\"jedi-form\\"></form>"`;
 
-exports[`[component] JediForm should trigger addJedi on submit when not disabled 1`] = `"<form class=\\"jedi-form\\"><input class=\\"jedi-form-field-input\\" id=\\"jedi-name\\" name=\\"jedi-name\\" value=\\" \\" placeholder=\\"name\\"/></form>"`;
+exports[`[component] JediForm should trigger addJedi on submit when not disabled 1`] = `"<form id=\\"jedi-form\\" class=\\"jedi-form\\"><input class=\\"jedi-form-field-input\\" id=\\"jedi-name\\" name=\\"jedi-name\\" value=\\" \\" placeholder=\\"name\\"/></form>"`;
 
-exports[`[component] JediForm should trigger addJedi on submit when not disabled 2`] = `"<form class=\\"jedi-form\\"><input class=\\"jedi-form-field-input\\" id=\\"jedi-name\\" name=\\"jedi-name\\" value=\\"\\" placeholder=\\"name\\"/></form>"`;
+exports[`[component] JediForm should trigger addJedi on submit when not disabled 2`] = `"<form id=\\"jedi-form\\" class=\\"jedi-form\\"><input class=\\"jedi-form-field-input\\" id=\\"jedi-name\\" name=\\"jedi-name\\" value=\\"\\" placeholder=\\"name\\"/></form>"`;

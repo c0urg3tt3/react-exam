@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
+import AppLogo from '../app-logo/component'
 import JediError from '../jedi-error/component'
 import JediForm from '../jedi-form/component'
 import JediFormField from '../jedi-form-field/component'
+import JediFormButtonSubmit from '../jedi-form-button-submit/component'
 import JediListEmpty from '../jedi-list-empty/component'
 import JediListLoader from '../jedi-list-loader/component'
 import JediQuote from '../jedi-quote/component'
@@ -75,13 +77,12 @@ export default class Jedi  extends Component {
             {...fieldName}
           />
         ), (
-          <button
+          <JediFormButtonSubmit
             key="JediFormButtonSubmit-0"
-            className="jedi-form-button-submit"
-            disabled={submitButtonIsDisabled}
+            isDisabled={submitButtonIsDisabled}
           >
-            +
-          </button>
+            <AppLogo isAnimate={false}/>
+          </JediFormButtonSubmit>
         )]}
         </JediForm>
 

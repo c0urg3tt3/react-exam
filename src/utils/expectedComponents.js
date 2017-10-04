@@ -52,6 +52,16 @@ export function expectJediFormField ({wrapper, exist = true, elementId = "", val
   }
 }
 
+export function expectJediFormButtonSubmit ({wrapper, exist = true, title = "", isDisabled = true}) {
+  const JediFormButtonSubmit = wrapper.find('JediFormButtonSubmit')
+  expect(JediFormButtonSubmit.exists()).toEqual(exist)
+
+  if (exist) {
+    expect(JediFormButtonSubmit.prop('title')).toEqual(title)
+    expect(JediFormButtonSubmit.prop('isDisabled')).toEqual(isDisabled)
+  }
+}
+
 export function expectJediList ({wrapper, exist = true, jedies = []}) {
   const JediList = wrapper.find('JediList')
   expect(JediList.exists()).toEqual(exist)

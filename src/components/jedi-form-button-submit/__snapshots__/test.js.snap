@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[component] JediFormButtonSubmit should accept child 1`] = `"<button class=\\"jedi-form-button-submit\\" type=\\"submit\\" title=\\"[disabled] Submit your padawan to the Council\\" disabled=\\"\\"><img alt=\\"child\\"/></button>"`;
+
+exports[`[component] JediFormButtonSubmit should accept children 1`] = `"<button class=\\"jedi-form-button-submit\\" type=\\"submit\\" title=\\"[disabled] Submit your padawan to the Council\\" disabled=\\"\\"><img alt=\\"child\\"/><img alt=\\"child\\"/></button>"`;
+
+exports[`[component] JediFormButtonSubmit should enable the button 1`] = `"<button class=\\"jedi-form-button-submit\\" type=\\"submit\\" title=\\"[disabled] Submit your padawan to the Council\\" disabled=\\"\\"></button>"`;
+
+exports[`[component] JediFormButtonSubmit should enable the button 2`] = `"<button class=\\"jedi-form-button-submit\\" type=\\"submit\\" title=\\"Submit your padawan to the Council\\"></button>"`;
+
+exports[`[component] JediFormButtonSubmit should render component 1`] = `"<button class=\\"jedi-form-button-submit\\" type=\\"submit\\" title=\\"[disabled] Submit your padawan to the Council\\" disabled=\\"\\"></button>"`;

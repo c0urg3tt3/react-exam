@@ -24,7 +24,7 @@ describe('[component] JediForm', () => {
           name="jedi-name"
           value={fieldName.value}
           placeholder="name"
-          onChange={fieldName.handleChange}
+          onChange={fieldName.onChange}
         />
       )}
       </JediForm>
@@ -54,7 +54,7 @@ describe('[component] JediForm', () => {
           name="jedi-name"
           value={fieldName.value}
           placeholder="name"
-          onChange={fieldName.handleChange}
+          onChange={fieldName.onChange}
         />
       ), (
         <button
@@ -73,7 +73,7 @@ describe('[component] JediForm', () => {
 
     wrapper.find('input').simulate('change', { target: { value: 'Jar Jar Bings'}})
 
-    expect(wrapper.find('button').prop('disabled')).toEqual(null)
+    expect(wrapper.find('button').prop('disabled')).toEqual(false)
     expect(wrapper.html()).toMatchSnapshot()
   })
 })

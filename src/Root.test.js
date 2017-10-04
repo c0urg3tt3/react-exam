@@ -12,6 +12,7 @@ import {
   expectJediError,
   expectJediForm,
   expectJediFormField,
+  expectJediFormButtonSubmit,
   expectJediListEmpty,
   expectJediList,
   expectJediListItem,
@@ -32,7 +33,7 @@ describe('Root', () => {
     expect(wrapper.find('.app').exists()).toEqual(true)
 
     expectAppHeader({wrapper})
-    expectAppLogo({wrapper})
+    expectAppLogo({wrapper: wrapper.find('AppHeader')})
     expectAppTitle({wrapper})
     expectJediForm({wrapper})
     expectJediFormField({
@@ -41,6 +42,15 @@ describe('Root', () => {
       labelValue: "Add a Jedi to the Council",
       placeholder: "name",
       value: ""
+    })
+    expectJediFormButtonSubmit({
+      wrapper,
+      title: "Submit your padawan to the Council",
+      isDisabled: true
+    })
+    expectAppLogo({
+      wrapper: wrapper.find('JediFormButtonSubmit'),
+      isAnimate: false
     })
     expectJediList({wrapper, exist: false})
     expectJediListItem({wrapper, exist: false})
