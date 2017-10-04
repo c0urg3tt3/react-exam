@@ -18,7 +18,7 @@ describe('[component] Jedi', () => {
     expect(wrapper.is('div')).toEqual(true)
     expect(wrapper.hasClass('jedi')).toEqual(true)
 
-    expectJediError({wrapper})
+    expectJediError({wrapper, exist: false})
     expectJediListEmpty({wrapper})
     expectJediListLoader({wrapper, exist: false})
     expect(wrapper.html()).toMatchSnapshot()
@@ -36,7 +36,7 @@ describe('[component] Jedi', () => {
     const wrapper = shallow(<Jedi/>)
 
     expect(wrapper.hasClass('error')).toEqual(false)
-    expectJediError({ wrapper: wrapper.find('JediError')})
+    expectJediError({ wrapper: wrapper.find('JediError'), exist: false})
     expect(wrapper.html()).toMatchSnapshot()
 
     wrapper.setProps({
@@ -58,7 +58,7 @@ describe('[component] Jedi', () => {
     const wrapper = shallow(<Jedi/>)
 
     expect(wrapper.hasClass('error')).toEqual(false)
-    expectJediError({ wrapper: wrapper.find('JediError')})
+    expectJediError({ wrapper: wrapper.find('JediError'), exist: false})
     expect(wrapper.html()).toMatchSnapshot()
 
     wrapper.setState({

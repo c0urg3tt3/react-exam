@@ -20,7 +20,6 @@ export function expectAppTitle ({wrapper, exist = true, title = "Jedi List"}) {
   if (exist) {
     expect(H1.prop('title')).toEqual(title)
   }
-
   // const h1 = wrapper.find('.app-title')
   // expect(h1.exists()).toEqual(true)
   // expect(h1.text()).toEqual("Jedi List")
@@ -31,10 +30,41 @@ export function expectAppHeader ({wrapper, exist = true}) {
   expect(Header.exists()).toEqual(exist)
 }
 
+export function expectJediForm ({wrapper, exist = true, isPosting = false}) {
+  const JediForm = wrapper.find('JediForm')
+  expect(JediForm.exists()).toEqual(exist)
+
+  if (exist) {
+    expect(JediForm.prop('isPosting')).toEqual(isPosting)
+    expect(JediForm.prop('addJedi')).toHaveLength(1)
+  }
+}
+
+export function expectJediFormField ({wrapper, exist = true, elementId = "", value = "", labelValue = "", placeholder = "", onChange = () => null}) {
+  const JediFormField = wrapper.find('JediFormField')
+  expect(JediFormField.exists()).toEqual(exist)
+
+  if (exist) {
+    expect(JediFormField.prop('elementId')).toEqual(elementId)
+    expect(JediFormField.prop('value')).toEqual(value)
+    expect(JediFormField.prop('labelValue')).toEqual(labelValue)
+    expect(JediFormField.prop('placeholder')).toEqual(placeholder)
+  }
+}
+
+export function expectJediFormButtonSubmit ({wrapper, exist = true, title = "", isDisabled = true}) {
+  const JediFormButtonSubmit = wrapper.find('JediFormButtonSubmit')
+  expect(JediFormButtonSubmit.exists()).toEqual(exist)
+
+  if (exist) {
+    expect(JediFormButtonSubmit.prop('title')).toEqual(title)
+    expect(JediFormButtonSubmit.prop('isDisabled')).toEqual(isDisabled)
+  }
+}
+
 export function expectJediList ({wrapper, exist = true, jedies = []}) {
   const JediList = wrapper.find('JediList')
   expect(JediList.exists()).toEqual(exist)
-
   if (exist) {
     expect(JediList.prop('jedies')).toEqual(jedies)
   }
@@ -73,13 +103,14 @@ export function expectJediListEmpty ({wrapper, exist = true}) {
   // expect(listEmpty.exists()).toBe(true)
 }
 
-export function expectJediError ({wrapper, exist = true, isBoundaryError = false, isFetchingError = false, errorMessage = ""}) {
+export function expectJediError ({wrapper, exist = true, isBoundaryError = false, isFetchingError = false, isPostingError = false, errorMessage = ""}) {
   const JediError = wrapper.find('JediError')
   expect(JediError.exists()).toEqual(exist)
 
   if (exist) {
     expect(wrapper.find('JediError').prop('isBoundaryError')).toEqual(isBoundaryError)
     expect(wrapper.find('JediError').prop('isFetchingError')).toEqual(isFetchingError)
+    expect(wrapper.find('JediError').prop('isPostingError')).toEqual(isPostingError)
     expect(wrapper.find('JediError').prop('errorMessage')).toEqual(errorMessage)
   }
   // const error = wrapper.find('.jedi-error')

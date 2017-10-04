@@ -13,14 +13,22 @@ export const FETCHING_ERROR_QUOTE = {
   autor: "Count Dooku"
 }
 
+export const POSTING_ERROR_QUOTE = {
+  quote: "The Council will act as they deem necessary.",
+  autor: "Mace Windu, member of the Jedi High Council"
+}
+
 export default function JediError (props) {
-  const { children, errorMessage, isBoundaryError, isFetchingError } = props
+  const { children, errorMessage, isBoundaryError, isFetchingError, isPostingError } = props
 
   const quote = errorMessage !== "" && ( isBoundaryError
     ? BOUNDARY_ERROR_QUOTE
     : ( isFetchingError
       ? FETCHING_ERROR_QUOTE
-      : false
+      : ( isPostingError
+        ? POSTING_ERROR_QUOTE
+        : false
+      )
     )
   )
 
@@ -35,12 +43,14 @@ JediError.propTypes = {
   children: PropTypes.func,
   errorMessage: PropTypes.string,
   isBoundaryError: PropTypes.bool,
-  isFetchingError: PropTypes.bool
+  isFetchingError: PropTypes.bool,
+  isPostingError: PropTypes.bool
 }
 
 JediError.defaultProps = {
   children: () => null,
   errorMessage: "",
   isBoundaryError: false,
-  isFetchingError: false
+  isFetchingError: false,
+  isPostingError: false
 }

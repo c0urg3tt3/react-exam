@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { render, mount, shallow } from 'enzyme'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
@@ -10,6 +10,9 @@ import {
   expectJediListLoader,
   // expectJedi,
   expectJediError,
+  expectJediForm,
+  expectJediFormField,
+  expectJediFormButtonSubmit,
   expectJediListEmpty,
   expectJediList,
   expectJediListItem,
@@ -30,8 +33,25 @@ describe('Root', () => {
     expect(wrapper.find('.app').exists()).toEqual(true)
 
     expectAppHeader({wrapper})
-    expectAppLogo({wrapper})
+    expectAppLogo({wrapper: wrapper.find('AppHeader')})
     expectAppTitle({wrapper})
+    expectJediForm({wrapper})
+    expectJediFormField({
+      wrapper,
+      elementId: 'jedi-form-field_name',
+      labelValue: "Add a Jedi to the Council",
+      placeholder: "name",
+      value: ""
+    })
+    expectJediFormButtonSubmit({
+      wrapper,
+      title: "Submit your padawan to the Council",
+      isDisabled: true
+    })
+    expectAppLogo({
+      wrapper: wrapper.find('JediFormButtonSubmit'),
+      isAnimate: false
+    })
     expectJediList({wrapper, exist: false})
     expectJediListItem({wrapper, exist: false})
     expectJediListEmpty({wrapper})

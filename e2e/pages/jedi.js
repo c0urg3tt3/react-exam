@@ -1,4 +1,4 @@
-const { By, until } = require('../driver')
+const { By, Key, until } = require('../driver')
 
 module.exports = function(driver) {
   const utils = require('../utils/driverUtils')(driver)
@@ -6,7 +6,11 @@ module.exports = function(driver) {
   const elements = {
     App: By.css('.app'),
     AppHeader: By.css('.app-header'),
+    Jedi: By.css('.jedi'),
     JediError: By.css('.jedi-error'),
+    JediForm: By.css('.jedi-form'),
+    JediFormFieldName: By.id('jedi-form-field_name'),
+    JediFormButtonSubmit: By.css('.jedi-form-button-submit'),
     JediList: By.css('.jedi-list'),
     JediListEmpty: By.css('.jedi-list-empty'),
     JediListLoader: By.css('.jedi-list-loader'),
@@ -43,6 +47,37 @@ module.exports = function(driver) {
     },
     getJediErrorTagName: function() {
       return utils.getTagName(elements.JediError)
+    },
+
+  // JediForm
+    waitUntilJediForm: function() {
+      return utils.waitForElementVisible(elements.JediForm)
+    },
+    getJediFormTagName: function() {
+      return utils.getTagName(elements.JediForm)
+    },
+
+  // JediFormFieldName
+    waitUntilJediFormFieldName: function () {
+      return utils.waitForElementVisible(elements.JediFormFieldName)
+    },
+    getJediFormFieldNameTagName: function () {
+      return utils.getTagName(elements.JediFormFieldName)
+    },
+    setJediFormFieldNameValue: function (value) {
+      return utils.setValue(elements.JediFormFieldName, value)
+    },
+    submitJediFormWithName: function (value) {
+      this.setJediFormFieldNameValue(value)
+      return utils.setValue(elements.JediFormFieldName, Key.ENTER)
+    },
+
+  // JediFormButtonSubmit
+    waitUntilJediFormButtonSubmit: function() {
+      return utils.waitForElementVisible(elements.JediFormButtonSubmit)
+    },
+    getJediFormButtonSubmitTagName: function () {
+      return utils.getTagName(elements.JediFormButtonSubmit)
     },
 
   // JediList

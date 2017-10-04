@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[component] JediFormField should render component 1`] = `"<div class=\\"jedi-form-field\\"><label class=\\"jedi-form-field-label\\" for=\\"input\\">label</label><input class=\\"jedi-form-field-input\\" id=\\"input\\" name=\\"input\\" value=\\"\\" placeholder=\\"placeholder\\"/></div>"`;

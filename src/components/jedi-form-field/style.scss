@@ -1,0 +1,31 @@
+
+.jedi-form-field {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: stretch;
+  flex: 1 0 auto;
+  margin: 0;
+  padding: 0;
+}
+
+.jedi-form-field-label {
+  position: relative;
+  flex: 1 0 auto;
+  display: block;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+
+}
+
+.jedi-form-field-input {
+  position: relative;
+  flex: 1 0 100%;
+  height: 2rem;
+  margin: 0 0 0 1rem;
+  padding: 0 .5rem;
+  border: solid 1px black;
+  border-radius: .25rem 0 0 .25rem;
+}
