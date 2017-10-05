@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[component] JediList should render children as function 1`] = `"<ul class=\\"jedi-list\\"></ul>"`;
+exports[`[component] JediList should render component 1`] = `"<ul class=\\"jedi-list\\"><li class=\\"jedi-list-title\\"><span class=\\"jedi-list-title_id\\">id</span><span class=\\"jedi-list-title_name\\">name</span></li></ul>"`;
 
-exports[`[component] JediList should render children as function 2`] = `"<ul class=\\"jedi-list\\"><li class=\\"jedi\\">Anakin Skywalker</li><li class=\\"jedi\\">Sheev Palpatine</li></ul>"`;
+exports[`[component] JediList should render component with children as function 1`] = `"<ul class=\\"jedi-list\\"><li class=\\"jedi-list-title\\"><span class=\\"jedi-list-title_id\\">id</span><span class=\\"jedi-list-title_name\\">name</span></li></ul>"`;
 
-exports[`[component] JediList should render component 1`] = `"<ul class=\\"jedi-list\\"></ul>"`;
+exports[`[component] JediList should render component with children as function 2`] = `"<ul class=\\"jedi-list\\"><li class=\\"jedi-list-title\\"><span class=\\"jedi-list-title_id\\">id</span><span class=\\"jedi-list-title_name\\">name</span></li><li class=\\"jedi\\">Anakin Skywalker</li><li class=\\"jedi\\">Sheev Palpatine</li></ul>"`;

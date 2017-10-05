@@ -72,6 +72,12 @@ export function expectJediList ({wrapper, exist = true, jedies = []}) {
   // expect(list.exists()).toEqual(true)
 }
 
+export function expectJediListTitle ({wrapper, exist = true}) {
+  const JediListTitle = wrapper.find('JediListTitle')
+  expect(JediListTitle.exists()).toEqual(exist)
+  if (exist) {}
+}
+
 export function expectJediListItem ({wrapper, exist = true, length = 2, firstJedi = {id: 42, name: 'Jar Jar Bings'}}) {
   const JediListItem = wrapper.find('JediListItem')
   expect(JediListItem.exists()).toEqual(exist)

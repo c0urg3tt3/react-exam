@@ -15,6 +15,7 @@ import {
   expectJediFormButtonSubmit,
   expectJediListEmpty,
   expectJediList,
+  expectJediListTitle,
   expectJediListItem,
   expectJediQuote
 } from './utils/expectedComponents'
@@ -73,6 +74,7 @@ describe('Root', () => {
     const wrapper = mount(<Root store={store}/>)
 
     expectJediList({wrapper, jedies})
+    expectJediListTitle({wrapper})
     expectJediListItem({wrapper, jedi: jedies[0]})
 
     expect(wrapper.html()).toMatchSnapshot()
@@ -110,6 +112,28 @@ describe('Root', () => {
       message: errorMessage,
       quote: "What if I told you that the Republic was now under the control of a Dark Lord of the Sith?",
       autor: "Count Dooku"
+    })
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it('should render error when jedi post in failure', () => {
+    const errorMessage = "death star destroyed !"
+    const store = mockStore({ jedi: { list: {
+      isPostingError: true,
+      postingError: errorMessage
+    }}})
+    const wrapper = mount(<Root store={store}/>)
+
+    expectJediError({
+      wrapper,
+      isPostingError: true,
+      errorMessage: errorMessage
+    })
+    expectJediQuote({
+      wrapper: wrapper.find('JediError'),
+      message: errorMessage,
+      quote: "The Council will act as they deem necessary.",
+      autor: "Mace Windu"
     })
     expect(wrapper.html()).toMatchSnapshot()
   })

@@ -3,6 +3,8 @@ import { shallow } from 'enzyme'
 
 import JediList from './component'
 
+import { expectJediListTitle } from '../../utils/expectedComponents'
+
 describe('[component] JediList', () => {
   it('should render component', () => {
     const wrapper = shallow(<JediList/>)
@@ -10,10 +12,13 @@ describe('[component] JediList', () => {
     expect(wrapper.exists()).toEqual(true)
     expect(wrapper.is('ul')).toEqual(true)
     expect(wrapper.hasClass('jedi-list')).toEqual(true)
+
+    expectJediListTitle({wrapper})
+
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('should render children as function', () => {
+  it('should render component with children as function', () => {
     const jedies = [
       { id: 1337, name: 'Anakin Skywalker' },
       { id: 4242, name: 'Sheev Palpatine' }
@@ -29,14 +34,17 @@ describe('[component] JediList', () => {
       </JediList>
     )
 
+    expectJediListTitle({wrapper})
+
     expect(wrapper.find('li')).toHaveLength(0)
     expect(wrapper.html()).toMatchSnapshot()
 
     wrapper.setProps({ jedies })
 
-    expect(wrapper.find('li')).toHaveLength(2)
-    expect(wrapper.find('li').first().text()).toEqual(jedies[0].name)
-    expect(wrapper.find('li').last().text()).toEqual(jedies[1].name)
+    const items = wrapper.find('li')
+    expect(items).toHaveLength(2)
+    expect(items.first().text()).toEqual(jedies[0].name)
+    expect(items.last().text()).toEqual(jedies[1].name)
     expect(wrapper.html()).toMatchSnapshot()
   })
 })
