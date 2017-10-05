@@ -73,7 +73,7 @@ export default class Jedi  extends Component {
           </JediFormButtonSubmit>
         )]}
         </JediForm>
-      {hasError && (
+      {(hasError && (
         <JediError
           key="JediError-0"
           isBoundaryError={isBoundaryError}
@@ -85,7 +85,7 @@ export default class Jedi  extends Component {
             <JediQuote {...quoteProps}/>
           )}
         </JediError>
-      ) || (isFetching && (
+      )) || (isFetching && (
         <JediListLoader>
         {(quoteProps) => (
           <JediQuote {...quoteProps}/>
